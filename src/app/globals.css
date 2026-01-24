@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-github-bg: #f6f8fa;
+  --color-github-border: #d1d9e0;
+  --color-github-green: #1f883d;
+  --color-github-green-hover: #1a7f37;
+  --color-github-blue: #0969da;
+  --color-github-text-main: #1f2328;
+  --color-github-text-secondary: #656d76;
+}
+
+:root {
+  --background: #f6f8fa;
+  --foreground: #1f2328;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.github-input {
+  @apply block w-full px-3 py-1.5 text-base border-github-border border rounded-md focus:border-github-blue focus:ring-1 focus:ring-github-blue outline-none bg-white transition-all shadow-inner;
+  box-shadow: rgba(31, 35, 40, 0.04) 0px 1px 0px 0px inset;
+}
+
+.github-btn {
+  @apply w-full px-4 py-1.5 text-white bg-github-green border rounded-md font-medium text-sm transition-all hover:bg-github-green-hover active:shadow-inner cursor-pointer text-center;
+  border-color: rgba(31, 35, 40, 0.15);
+}
+
+.github-card {
+  @apply bg-white border border-github-border rounded-md p-4 mt-4;
+}

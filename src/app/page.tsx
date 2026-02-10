@@ -33,7 +33,7 @@ export default function LoginPage() {
             }
 
             // 2. 2FA case
-            if (data.sessionId && (data.challengeType || data.requires2FA || data.status === "requires_2fa")) {
+            if (data.sessionId && (data.challengeType || data.requires2FA || data.status === "REQUIRES_2FA")) {
                 setSessionId(data.sessionId);
                 setChallengeType(data.challengeType || "TOTP");
                 setChallengeMetadata(data.challengeMetadata);
@@ -118,7 +118,7 @@ export default function LoginPage() {
                         }
                     });
                     const data = await response.json();
-                    if (data.success && data.data?.status === "authenticated") {
+                    if (data.success && data.data?.status === "AUTHENTICATED") {
                         setStep("success");
                         clearInterval(interval);
                     }

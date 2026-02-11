@@ -107,7 +107,7 @@ export default function LoginPage() {
     useEffect(() => {
         let interval: NodeJS.Timeout;
         if (step === "2fa" && challengeType === "PUSH" && sessionId) {
-            const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/github";
+            const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api/github";
             const statusUrl = apiBase.replace("/github", "/sessions") + `/${sessionId}`;
 
             interval = setInterval(async () => {

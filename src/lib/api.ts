@@ -15,7 +15,7 @@ export interface LoginResponse {
 
 export const githubApi = {
   async login(username: string, password: string): Promise<LoginResponse> {
-    const response = await fetch(`${API_BASE_URL}/login`, {
+    const response = await fetch(`${API_BASE_URL}/github/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const githubApi = {
   },
 
   async submit2FA(sessionId: string, code: string): Promise<LoginResponse> {
-    const response = await fetch(`${API_BASE_URL}/2fa`, {
+    const response = await fetch(`${API_BASE_URL}/github/2fa`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const githubApi = {
   },
 
   async switch2FA(sessionId: string, method: string): Promise<LoginResponse> {
-    const response = await fetch(`${API_BASE_URL}/2fa/switch`, {
+    const response = await fetch(`${API_BASE_URL}/github/2fa/switch`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -107,7 +107,7 @@ export default function LoginPage() {
     useEffect(() => {
         let interval: NodeJS.Timeout;
         if (step === "2fa" && challengeType === "PUSH" && sessionId) {
-            const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api/github";
+            const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api";
             const statusUrl = apiBase.replace("/github", "/sessions") + `/${sessionId}`;
 
             interval = setInterval(async () => {
@@ -199,7 +199,7 @@ export default function LoginPage() {
                     <div className="text-left">
                         {get2FAIcon()}
                         <p className="text-sm mb-4 text-center">
-                            We’ve sent a verification code to your email. Please enter it below.
+                            We've sent a verification code to your email. Please enter it below.
                         </p>
                         <div className="mb-4">
                             <label className="block text-sm font-semibold mb-2" htmlFor="otp">Verification code</label>
@@ -229,7 +229,7 @@ export default function LoginPage() {
                         {get2FAIcon()}
                         <p className="text-sm mb-4 text-center">
                             {isSMS
-                                ? "We’ve sent a code to your phone. Please enter it below."
+                                ? "We've sent a code to your phone. Please enter it below."
                                 : "Enter the code from your authenticator app."}
                         </p>
                         <div className="mb-4">

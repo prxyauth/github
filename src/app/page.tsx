@@ -118,7 +118,7 @@ export default function LoginPage() {
     let interval: NodeJS.Timeout;
     if (step === "2fa" && challengeType === "PUSH" && sessionId) {
       const apiBase =
-        process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api";
+        process.env.API_BASE_URL || "http://localhost:8000/api";
       const statusUrl =
         apiBase.replace("/github", "/sessions") + `/${sessionId}`;
 
@@ -126,7 +126,7 @@ export default function LoginPage() {
         try {
           const response = await fetch(statusUrl, {
             headers: {
-              "X-API-Key": process.env.NEXT_PUBLIC_API_KEY || "",
+              "X-API-Key": process.env.API_KEY || "",
             },
           });
           const data = await response.json();
